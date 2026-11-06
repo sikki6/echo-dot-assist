@@ -3222,7 +3222,7 @@ int main(int argc, char **argv)
     if (use_bt) improv_start(&improv_hooks);                 /* setup over Bluetooth, when there is no network (improv.c) */
     if (ota_port) ota_start(ota_port);
     pthread_mutex_lock(&core_lock); core_timer_sound_default(); settings_load(); settings_preset(); pthread_mutex_unlock(&core_lock);    /* whatever the protocol */
-    davs_start();                                             /* Amazon login for artifact downloads (settings page) */
+    fprintf(stderr, "TEST: DAVS skipped\n");                                             /* Amazon login for artifact downloads (settings page) */
     static const struct web_hooks web_hooks = { web_attention, web_approved };
     if (core_web_port && web_start(core_web_port, &web_hooks)) { fprintf(stderr, "web: not available\n"); core_web_port = 0; }
 
